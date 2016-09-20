@@ -87,7 +87,6 @@
     <None Include="Assets\3rdParty\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\3rdParty\DOTween\readme.txt" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
-    <None Include="Assets\Standard Assets\Prototyping\Shaders\WorldCoordDiffuse.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

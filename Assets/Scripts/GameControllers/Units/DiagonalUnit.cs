@@ -24,16 +24,16 @@ public class DiagonalUnit : BaseUnit
 
     public void RandomRotate(float sign)
     {
-        float angle = Random.Range(0f, sign * maxAngle);
-        transform.eulerAngles = new Vector3(0f, m_StartAngle + angle, 0f);
+        float angle = Random.Range(0f, maxAngle);
+        transform.eulerAngles = new Vector3(0f, m_StartAngle - sign * angle, 0f);
     }
 
     public override void Move()
     {
         base.Move();
-
         if (Mathf.Abs(transform.position.z) >= fieldSize)
-            RandomRotate(Mathf.Sign(transform.position.x));
+            RandomRotate(Mathf.Sign(transform.position.z));
+
     }
 
     public override void Kill()
