@@ -21,7 +21,7 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
 
         Move();
 
-        if (transform.position.z <= 0f)
+        if (transform.position.x <= 0f)
             Escape();
     }
 

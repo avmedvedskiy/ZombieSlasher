@@ -32,7 +32,7 @@ public class DiagonalUnit : BaseUnit
     {
         base.Move();
 
-        if (Mathf.Abs(transform.position.x) >= fieldSize)
+        if (Mathf.Abs(transform.position.z) >= fieldSize)
             RandomRotate(Mathf.Sign(transform.position.x));
     }
 
