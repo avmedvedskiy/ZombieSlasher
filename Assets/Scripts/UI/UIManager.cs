@@ -10,8 +10,8 @@ public class UIManager : Singleton<UIManager>
 	void Awake ()
     {
         DontDestroyOnLoad(gameObject);
-        windows = GetComponentsInChildren<UIWindow>(true).ToDictionary(x => x.windowName);        
-
+        windows = GetComponentsInChildren<UIWindow>(true).ToDictionary(x => x.windowName);
+        
 #if UNITY_EDITOR
         Debug.Log("Windows count: " + windows.Count);
         foreach(var window in windows)
@@ -19,7 +19,26 @@ public class UIManager : Singleton<UIManager>
             Debug.Log(window.Key);
         }
 #endif
-    }    
+    }
+
+    public void ToMainMenu()
+    {
+#if UNITY_EDITOR
+        Debug.Log("ToMainMenu");
+#endif
+        UIManager.Instance.ShowWindow(UIConstants.UIWindowNames.MAIN_MENU);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GameOver()
+    {
+        ShowWindow(UIConstants.UIWindowNames.FINISH_GAME);
+    }
 
     public void ShowWindow(string name)
     {

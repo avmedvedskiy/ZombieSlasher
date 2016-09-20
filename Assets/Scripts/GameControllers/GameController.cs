@@ -23,6 +23,11 @@ public class GameController : Singleton<GameController>
     public Action OnGameComplete;
     public Action OnGameOver;
 
+    public void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void KillMonster()
     {
         KilledMonsters++;
@@ -49,6 +54,7 @@ public class GameController : Singleton<GameController>
     public void GameOver()
     {
         Debug.Log("GameOver");
+        UIManager.Instance.GameOver();
         SafeCall(OnGameOver);
     }
 
