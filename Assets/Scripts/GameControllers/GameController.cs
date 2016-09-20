@@ -26,24 +26,29 @@ public class GameController : Singleton<GameController>
     public void KillMonster()
     {
         KilledMonsters++;
+        Debug.Log("Kill monster. Count = " + KilledMonsters);
         SafeCall(OnMonsterKill);
     }
 
     public void EscapeMonster()
     {
-        SafeCall(OnMonsterEscape);
         EscapedMonsters--;
         if (EscapedMonsters == 0)
             GameOver();
+        Debug.Log("Monster escape. Left monsters  = " + EscapedMonsters);
+
+        SafeCall(OnMonsterEscape);
     }
 
     public void GameComplete()
     {
+        Debug.Log("GameComplete");
         SafeCall(OnGameComplete);
     }
 
     public void GameOver()
     {
+        Debug.Log("GameOver");
         SafeCall(OnGameOver);
     }
 

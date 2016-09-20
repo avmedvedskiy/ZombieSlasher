@@ -18,23 +18,26 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
     {
         if (isEscaped)
             return;
-        
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+
+        Move();
 
         if (transform.position.z <= 0f)
             Escape();
     }
 
+    public virtual void Move()
+    {
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+    }
+
     public virtual void Escape()
     {
         isEscaped = true;
-        GameController.Instance.EscapeMonster();
         Destroy(gameObject);
     }
 
     public virtual void Kill()
     {
-        GameController.Instance.KillMonster();
         Destroy(gameObject);
     }
 
