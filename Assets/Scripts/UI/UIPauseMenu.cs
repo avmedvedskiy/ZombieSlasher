@@ -25,4 +25,10 @@ public class UIPauseMenu : UIWindow
         GameController.Instance.ResetPause();
     }
 
+    public void Restart()
+    {
+        UIManager.Instance.Restart();
+        Hide();
+    }
+
 }

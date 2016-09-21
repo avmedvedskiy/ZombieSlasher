@@ -36,6 +36,7 @@ public class UIManager : Singleton<UIManager>
     {
 #if UNITY_EDITOR
         Debug.Log("ExitGame");
+        GameController.Instance.Restart();
 #endif
         Application.Quit();
     }
