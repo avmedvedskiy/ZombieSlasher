@@ -16,9 +16,12 @@ public class BombSkill : Skill
 
     public override void Use(BaseUnit unit)
     {
-        base.Use(unit);
         if (m_LeftCount == 0)
             return;
+
+        m_LeftCount--;
+
+        GameController.SafeCall(OnUseSkill);
 
         Debug.Log("BombSkill.Use");
         const int UNIT_LAYER = 8;
