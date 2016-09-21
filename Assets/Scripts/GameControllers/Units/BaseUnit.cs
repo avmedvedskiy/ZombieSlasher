@@ -25,6 +25,9 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
 
     public virtual void Move()
     {
+        if (GameController.Instance.isGamePaused)
+            return;
+
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
@@ -37,6 +40,22 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
     public virtual void Kill()
     {
         Destroy(gameObject);
+    }
+
+    public void Restart()
+    {
+        Destroy(gameObject);
+    }
+
+    public void OnEnable()
+    {
+        GameController.Instance.OnGameRestart += Restart;
+    }
+
+    public void OnDisable()
+    {
+        if(GameController.Instance)
+            GameController.Instance.OnGameRestart -= Restart;
     }
 
     public void OnPointerDown(PointerEventData eventData)

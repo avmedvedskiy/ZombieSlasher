@@ -32,12 +32,17 @@ public class UIManager : Singleton<UIManager>
 
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameController.Instance.Restart();
     }
 
     public void GameOver()
     {
         ShowWindow(UIConstants.UIWindowNames.FINISH_GAME);
+    }
+
+    public void GameComplete()
+    {
+        ShowWindow(UIConstants.UIWindowNames.GAME_COMPLETE);
     }
 
     public void ShowWindow(string name)

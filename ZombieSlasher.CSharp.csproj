@@ -69,13 +69,14 @@
     <Compile Include="Assets\3rdParty\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\3rdParty\DOTween\Examples\Sequences.cs" />
     <Compile Include="Assets\Scripts\GameControllers\GameController.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\LevelController.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\MonsterSpawner.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\BaseUnit.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\DiagonalUnit.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\FriendlyUnit.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\SimpleUnit.cs" />
+    <Compile Include="Assets\Scripts\LevelController\LevelController.cs" />
+    <Compile Include="Assets\Scripts\LevelController\MonsterSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\UIConstants.cs" />
+    <Compile Include="Assets\Scripts\UI\UIGameComplete.cs" />
     <Compile Include="Assets\Scripts\UI\UIGameHUD.cs" />
     <Compile Include="Assets\Scripts\UI\UIGameOverMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UIMainMenu.cs" />

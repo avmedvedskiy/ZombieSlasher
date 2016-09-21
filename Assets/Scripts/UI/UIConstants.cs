@@ -9,6 +9,7 @@ public static class UIConstants
         public const string GAME_HUD = "GameHUD";
         public const string PAUSE_MENU = "PauseMenu";
         public const string FINISH_GAME = "GameOverMenu";
+        public const string GAME_COMPLETE = "GameCompleteMenu";
     }
 
 }
