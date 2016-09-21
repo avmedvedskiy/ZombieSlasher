@@ -61,14 +61,14 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="DOTween">
-      <HintPath>Assets\3rdParty\DOTween\DOTween.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\3rdParty\DOTween\Examples\Basics.cs" />
-    <Compile Include="Assets\3rdParty\DOTween\Examples\Sequences.cs" />
     <Compile Include="Assets\Scripts\GameControllers\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\Skills\BombSkill.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\Skills\KillSkill.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\Skills\Skill.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\Skills\SkillController.cs" />
+    <Compile Include="Assets\Scripts\GameControllers\Skills\UISkill.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\BaseUnit.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\DiagonalUnit.cs" />
     <Compile Include="Assets\Scripts\GameControllers\Units\FriendlyUnit.cs" />
@@ -85,9 +85,6 @@
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\3rdParty\DOTween\DOTween.XML" />
-    <None Include="Assets\3rdParty\DOTween\Editor\DOTweenEditor.XML" />
-    <None Include="Assets\3rdParty\DOTween\readme.txt" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

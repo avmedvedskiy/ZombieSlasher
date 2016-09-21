@@ -23,11 +23,21 @@ public class UIManager : Singleton<UIManager>
 
     public void ToMainMenu()
     {
+        //Go TO Main menu off, close applications
+        //#if UNITY_EDITOR
+        //        Debug.Log("ToMainMenu");
+        //#endif
+        //        UIManager.Instance.ShowWindow(UIConstants.UIWindowNames.MAIN_MENU);
+        //        SceneManager.LoadScene("MainMenu");
+        ExitGame();
+    }
+
+    public void ExitGame()
+    {
 #if UNITY_EDITOR
-        Debug.Log("ToMainMenu");
+        Debug.Log("ExitGame");
 #endif
-        UIManager.Instance.ShowWindow(UIConstants.UIWindowNames.MAIN_MENU);
-        SceneManager.LoadScene("MainMenu");
+        Application.Quit();
     }
 
     public void Restart()

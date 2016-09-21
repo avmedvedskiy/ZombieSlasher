@@ -61,5 +61,6 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         Kill();
+        SkillController.Instance.UseActiveSkill(this);
     }
 }

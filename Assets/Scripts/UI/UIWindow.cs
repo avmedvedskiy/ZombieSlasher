@@ -7,6 +7,12 @@ public class UIWindow : MonoBehaviour
 
     public bool IsOpen { get { return gameObject.activeInHierarchy; } }
 
+    public void Start()
+    {
+        if (IsOpen)
+            Show();
+    }
+
     public virtual void Show()
     {
         gameObject.SetActive(true);

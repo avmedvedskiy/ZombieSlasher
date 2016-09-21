@@ -4,10 +4,8 @@ using System.Collections;
 public class LevelController : Singleton<LevelController>
 {
     public int monsterCount = 40;
-    [HideInInspector]
     public int leftCount = 40;
     public float levelDuration = 60f;// level duration in seconds;
-    [HideInInspector]
     public float leftDuration = 60f;
     
     public bool isTimeOver = false;
@@ -39,7 +37,7 @@ public class LevelController : Singleton<LevelController>
             return;
 
 
-        int spawnCount = Random.Range(1, maxCount);
+        int spawnCount = Random.Range(1, (leftCount > maxCount)? maxCount : leftCount);
         leftCount -= spawnCount;
 
         spawner.Spawn(spawnCount);
@@ -51,6 +49,10 @@ public class LevelController : Singleton<LevelController>
     {
         if (isTimeOver)
             return;
+
+        if (GameController.Instance.isGamePaused)
+            return;
+
         leftDuration -= Time.deltaTime;
 
         if (leftDuration <= 0f)
@@ -70,9 +72,10 @@ public class LevelController : Singleton<LevelController>
 
     public void Restart()
     {
+        CancelInvoke("Spawn");
         leftCount = monsterCount;
         leftDuration = levelDuration;
         isTimeOver = false;
-        Spawn();
+        Invoke("Spawn", minWait);
     }
 }

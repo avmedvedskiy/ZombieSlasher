@@ -11,6 +11,7 @@ public class UIMainMenu : UIWindow
         Debug.Log("StartPlay");
 #endif
         SceneManager.LoadScene("GameScene");
+        UIManager.Instance.ShowWindow(UIConstants.UIWindowNames.GAME_HUD);
         Hide();
     }
 

@@ -113,6 +113,7 @@ public class GameController : Singleton<GameController>
         KilledMonsters = 0;
         FriendlyCharacters = 0;
         isGamePaused = false;
+        SkillController.Instance.Restart();
         LevelController.Instance.Restart();
         SafeCall(OnGameRestart);
     }
