@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FriendlyUnit : BaseUnit
+public class FriendlyUnit : DiagonalUnit
 {
     public override void Start()
     {
@@ -16,6 +16,6 @@ public class FriendlyUnit : BaseUnit
 
     public override void Escape()
     {
-        base.Escape();
+
     }
 }
