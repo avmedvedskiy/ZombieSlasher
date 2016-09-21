@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1D2B9D9E-8E16-FB61-A989-88841DFABDD9}</ProjectGuid>
+    <ProjectGuid>{2E719E8A-E9BA-7110-7A3A-D9C663B1FA68}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>EditorPlugins:7</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -52,14 +52,47 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.EditorTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.EditorTestsRunner.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor">
-      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,28 +100,17 @@
       <Project>{A040990C-F279-5704-1DBF-B68FCFE7305D}</Project>
       <Name>ZombieSlasher.CSharp.Plugins</Name>
     </ProjectReference>
+    <ProjectReference Include="ZombieSlasher.CSharp.csproj">
+      <Project>{1D2B9D9E-8E16-FB61-A989-88841DFABDD9}</Project>
+      <Name>ZombieSlasher.CSharp</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameControllers\GameController.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Skills\BombSkill.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Skills\KillSkill.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Skills\Skill.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Skills\SkillController.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Skills\UISkill.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Units\BaseUnit.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Units\DiagonalUnit.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Units\FriendlyUnit.cs" />
-    <Compile Include="Assets\Scripts\GameControllers\Units\SimpleUnit.cs" />
-    <Compile Include="Assets\Scripts\LevelController\LevelController.cs" />
-    <Compile Include="Assets\Scripts\LevelController\MonsterSpawner.cs" />
-    <Compile Include="Assets\Scripts\UI\UIConstants.cs" />
-    <Compile Include="Assets\Scripts\UI\UIGameComplete.cs" />
-    <Compile Include="Assets\Scripts\UI\UIGameHUD.cs" />
-    <Compile Include="Assets\Scripts\UI\UIGameOverMenu.cs" />
-    <Compile Include="Assets\Scripts\UI\UIMainMenu.cs" />
-    <Compile Include="Assets\Scripts\UI\UIManager.cs" />
-    <Compile Include="Assets\Scripts\UI\UIWindow.cs" />
-    <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
+    <Compile Include="Assets\Standard Assets\Effects\Bloom\Editor\BloomEditor.cs" />
+    <Compile Include="Assets\Standard Assets\Effects\Bloom\Editor\BloomGraphDrawer.cs" />
+    <Compile Include="Assets\Standard Assets\Effects\Common\Editor\EditorGUIHelper.cs" />
+    <Compile Include="Assets\Standard Assets\Effects\Common\Editor\FieldFinder.cs" />
+    <Compile Include="Assets\Standard Assets\Effects\Common\Editor\MinDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\Effects\Bloom\Resources\Bloom.cginc" />
