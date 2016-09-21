@@ -19,6 +19,11 @@ public class UIWaitTimer : MonoBehaviour
         StartCoroutine(SetTimerCoroutine(seconds));
     }
 
+    public void StopTimer()
+    {
+        StopAllCoroutines();
+    }
+
     public IEnumerator SetTimerCoroutine(int seconds)
     {
         GameController.Instance.SetPause(true);

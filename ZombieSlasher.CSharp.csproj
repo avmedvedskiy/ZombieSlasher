@@ -93,9 +93,9 @@
     <Compile Include="Assets\Scripts\UI\UIMainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\UIPauseMenu.cs" />
+    <Compile Include="Assets\Scripts\UI\UIWaitTimer.cs" />
     <Compile Include="Assets\Scripts\UI\UIWindow.cs" />
     <Compile Include="Assets\Scripts\Utility\Singleton.cs" />
-    <Compile Include="Assets\UIWaitTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\3rdParty\DOTween\DOTween.XML" />

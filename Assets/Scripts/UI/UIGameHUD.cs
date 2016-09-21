@@ -79,15 +79,18 @@ public class UIGameHUD : UIWindow
 
     public void OnPauseChange(bool value)
     {
+
+        if (waitTimer == null)
+            return;
+
+        waitTimer.StopTimer();
+
         if (value == false)
             SetTimerPause(3);
     }
 
     public void SetTimerPause(int seconds)
     {
-        if (waitTimer == null)
-            return;
-
         waitTimer.SetTimer(seconds);
     }
 }
