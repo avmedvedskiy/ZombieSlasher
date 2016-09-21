@@ -62,6 +62,7 @@ public class LevelController : Singleton<LevelController>
     public void TimeIsOver()
     {
         isTimeOver = true;
+        GameController.Instance.GameComplete();
         Debug.Log("Time is over");
     }
 
