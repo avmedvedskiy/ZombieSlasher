@@ -34,6 +34,8 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
     {
         if (GameController.Instance.isGamePaused)
             return;
+        if (GameController.Instance.isGameComplete)
+            return;
 
         if (isKilled)
             return;

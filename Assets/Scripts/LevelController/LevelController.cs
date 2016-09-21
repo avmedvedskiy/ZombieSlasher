@@ -33,8 +33,14 @@ public class LevelController : Singleton<LevelController>
         if (leftCount <= 0)
             return;
 
-        if (GameController.Instance.isGamePaused)
+        if (GameController.Instance.isGameComplete)
             return;
+
+        if (GameController.Instance.isGamePaused)
+        {
+            Invoke("Spawn", 0.1f); // if pause wait
+            return;
+        }
 
 
         int spawnCount = Random.Range(1, (leftCount > maxCount)? maxCount : leftCount);
@@ -51,6 +57,9 @@ public class LevelController : Singleton<LevelController>
             return;
 
         if (GameController.Instance.isGamePaused)
+            return;
+
+        if (GameController.Instance.isGameComplete)
             return;
 
         leftDuration -= Time.deltaTime;

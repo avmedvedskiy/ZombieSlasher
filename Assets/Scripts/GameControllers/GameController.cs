@@ -28,6 +28,7 @@ public class GameController : Singleton<GameController>
     }
 
     public bool isGamePaused = false;
+    public bool isGameComplete= false;
 
 
     public Action OnMonsterKill;
@@ -36,6 +37,7 @@ public class GameController : Singleton<GameController>
     public Action OnGameComplete;
     public Action OnGameOver;
     public Action OnGameRestart;
+    public Action<bool> OnGamePause;
 
     public void Start()
     {
@@ -94,7 +96,7 @@ public class GameController : Singleton<GameController>
     public void GameComplete()
     {
         Debug.Log("GameComplete");
-        isGamePaused = true;
+        isGameComplete = true;
         UIManager.Instance.GameComplete();
         SafeCall(OnGameComplete);
     }
@@ -102,9 +104,26 @@ public class GameController : Singleton<GameController>
     public void GameOver()
     {
         Debug.Log("GameOver");
-        isGamePaused = true;
+        isGameComplete = true;
         UIManager.Instance.GameOver();
         SafeCall(OnGameOver);
+    }
+
+    public void StartPause()
+    {
+        SetPause(true);
+        SafeCall(OnGamePause, true);
+    }
+
+    public void ResetPause()
+    {
+        SetPause(false);
+        SafeCall(OnGamePause, false);
+    }
+
+    public void SetPause(bool pause)
+    {
+        isGamePaused = pause;
     }
 
     public void Restart()
@@ -113,8 +132,10 @@ public class GameController : Singleton<GameController>
         KilledMonsters = 0;
         FriendlyCharacters = 0;
         isGamePaused = false;
+        isGameComplete = false;
         SkillController.Instance.Restart();
         LevelController.Instance.Restart();
+        ResetPause();
         SafeCall(OnGameRestart);
     }
 
@@ -122,5 +143,11 @@ public class GameController : Singleton<GameController>
     {
         if(a != null)
             a.Invoke();
+    }
+
+    public static void SafeCall<T>(Action<T> a,T param)
+    {
+        if (a != null)
+            a.Invoke(param);
     }
 }

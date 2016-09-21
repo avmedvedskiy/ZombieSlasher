@@ -94,6 +94,12 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\3rdParty\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\3rdParty\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="ZombieSlasher.CSharp.Plugins.csproj">
@@ -113,6 +119,9 @@
     <Compile Include="Assets\Standard Assets\Effects\Common\Editor\MinDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\3rdParty\DOTween\DOTween.XML" />
+    <None Include="Assets\3rdParty\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\3rdParty\DOTween\readme.txt" />
     <None Include="Assets\Standard Assets\Effects\Bloom\Resources\Bloom.cginc" />
     <None Include="Assets\Standard Assets\Effects\Bloom\Resources\Bloom.shader" />
     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
