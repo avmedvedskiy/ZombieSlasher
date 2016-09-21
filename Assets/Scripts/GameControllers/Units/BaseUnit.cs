@@ -6,6 +6,13 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
 {
     public float moveSpeed = 2f;
     public bool isEscaped = false;
+    public bool isKilled = false;
+
+    private Animator m_Animator;
+    public Animator Animator
+    {
+        get { return m_Animator ?? (m_Animator = GetComponent<Animator>()); }
+    }
 
     public virtual void Start()
     {
@@ -28,6 +35,9 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
         if (GameController.Instance.isGamePaused)
             return;
 
+        if (isKilled)
+            return;
+
         transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
@@ -39,7 +49,9 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
 
     public virtual void Kill()
     {
-        Destroy(gameObject);
+        isKilled = true;
+        Animator.SetTrigger("DeathTrigger");
+        Destroy(gameObject,2);
     }
 
     public void Restart()
@@ -60,6 +72,8 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (isKilled)
+            return;
         Kill();
         SkillController.Instance.UseActiveSkill(this);
     }
