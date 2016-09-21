@@ -15,6 +15,7 @@ public class UIWaitTimer : MonoBehaviour
 
     public void SetTimer(int seconds)
     {
+        StopAllCoroutines();
         StartCoroutine(SetTimerCoroutine(seconds));
     }
 

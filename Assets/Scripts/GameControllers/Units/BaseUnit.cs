@@ -76,6 +76,11 @@ public class BaseUnit : MonoBehaviour, IPointerDownHandler
     {
         if (isKilled)
             return;
+        if (GameController.Instance.isGamePaused)
+            return;
+        if (GameController.Instance.isGameComplete)
+            return;
+
         Kill();
         SkillController.Instance.UseActiveSkill(this);
     }
